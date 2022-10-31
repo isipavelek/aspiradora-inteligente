@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
-import { getDatabase, ref, child, update } from "firebase/database";
+import { getDatabase, ref, child, update, onValue } from "firebase/database";
 //import Read from "../Helpers/Read";
 
 export default function CleanButton() {
   
   const [enabled, setEnabled] = useState(false);
-  //const [state, updateState] = useState(false)
+
+  useEffect(() => {
+    const db = getDatabase();
+    const starCountRef = ref(db, 'inicioRapido');
+    onValue(starCountRef, (snapshot) => {
+    const data = snapshot.val();
+    //updateStarCount(postElement, data);
+    console.log(data)
+     setEnabled(data)
+  });
+  },[enabled]);
 
   const cambioEstado = () => {
     const db = getDatabase();
@@ -26,6 +36,7 @@ export default function CleanButton() {
       <div className="flex">
         <label className="inline-flex relative items-center mr-5 cursor-pointer">
           <input
+            id="boton"
             type="checkbox"
             className="sr-only peer"
             checked={enabled}

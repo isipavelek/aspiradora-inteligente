@@ -8,12 +8,14 @@ function App() {
 
   //leer datos.................................
   
-  /*const db = getDatabase();
+  /*
+  const db = getDatabase();
   const starCountRef = ref(db, 'inicioRapido');
   onValue(starCountRef, (snapshot) => {
     const data = snapshot.val();
     //updateStarCount(postElement, data);
     console.log(data)
+    document.getElementById("").innerHTML = data;
   });*/
   //...........................................
 

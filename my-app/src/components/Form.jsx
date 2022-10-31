@@ -1,6 +1,20 @@
 import React from "react";
 
 const Form = (props) => {
+
+  /*const cambioEstado = () => {
+    const db = getDatabase();
+    const newPostKey = (child(ref(db), "inicioRapido")).key;
+    //console.log(newPostKey)
+    const updates = {};
+    updates[newPostKey] = !enabled;
+    update(ref(db), updates)
+    .then(() => console.log("cambiado"))
+    .catch((error) => console.log(error));
+    setEnabled(!enabled)
+    console.log(enabled)
+  };*/
+
   return (
     <div className="flex justify-center m-10">
       <div className="mb-1 xl:w-96">
@@ -12,6 +26,7 @@ const Form = (props) => {
         </label>
         <div className="flex">
         <input
+          id="form"
           type="number"
           className="
         form-control
@@ -30,10 +45,11 @@ const Form = (props) => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
-          id="exampleNumber0"
           placeholder={props.medidaTiempo}
         />
-        <button className="bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded ml-3">
+        <button type="submit" id="form" className="bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded ml-3" onClick={()=>{
+
+        }}>
           Subir
         </button>
         </div>
